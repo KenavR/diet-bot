@@ -64,6 +64,15 @@ bot.on('ready', function(event) {
 
 var cqInterval = null;
 
+// Temp sniffer for voicestate events
+bot.on('any', function(event) {
+	if (event.t === 'VOICE_STATE_UPDATE' && event.d.channel_id !== null) {
+		console.log(event)
+		console.log(event.d.user_id);
+	}
+});
+
+
 bot.on('message', function(user, userID, channelID, message, event) {
 	cQ.queue.push({user, userID, channelID, message, event});
 	checkQueue();
