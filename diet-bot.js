@@ -67,7 +67,7 @@ var cqInterval = null;
 // Temp sniffer for voicestate events
 bot.on('any', function(event) {
 	if (event.t === 'VOICE_STATE_UPDATE' && event.d.channel_id !== null) {
-		console.log(event)
+		console.log(event);
 		console.log(event.d.user_id);
 	}
 });
